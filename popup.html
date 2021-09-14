@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+<head>
+    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+    <script lang="javascript" src="./xlsx/xlsx.full.min.js"></script>
+    <div id="bad-page">
+        <h2>Página do JIRA não encontrada</h2>
+        <p>Para poder utilizar essa extensão, abra a página do projeto (board) JIRA antes de clicar no ícone.
+        </p>
+    </div>
+    <div id="main-form" class="hidden">
+        <h2>Atlassian Task Creator</h2>
+        <p id="username">Logged in JIRA as: <strong></strong></p>
+        <form>
+            <fieldset>
+                <legend>
+                    Importar planilha
+                </legend>
+                <input type="file">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Chave do Projeto
+                </legend>
+                <label>
+                    <input name="projectKey" type="text">
+                    (ex: PAND, AER etc)
+                </label>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="popup.js" type="module"></script>
+</body>
+
+</html>
