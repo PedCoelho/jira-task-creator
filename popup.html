@@ -18,12 +18,17 @@
     <div id="main-form" class="hidden">
         <h2>Atlassian Task Creator</h2>
         <p id="username">Logged in JIRA as: <strong></strong></p>
-        <form>
+        <form name="main-form">
+            <div>
+                <button type="button" id="addTask">Add Task</button>
+                <button type="button" id="sendTasks">Send Selected (<span id="selCounter">0</span>
+                    selecionadas)</button>
+            </div>
             <fieldset>
                 <legend>
                     Importar planilha
                 </legend>
-                <input type="file">
+                <input name="file" type="file">
             </fieldset>
             <fieldset>
                 <legend>
@@ -34,10 +39,13 @@
                     (ex: PAND, AER etc)
                 </label>
             </fieldset>
+            <div class="tasks-ctn"></div>
         </form>
     </div>
 
     <script src="popup.js" type="module"></script>
+    <script src="./js/formController.js" type="module"></script>
+    <script src="./js/taskSender.js" type="module"></script>
 </body>
 
 </html>
