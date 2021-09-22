@@ -15,6 +15,11 @@ const getJiraUser = () => {
   if (user.length) return user;
 };
 
+const getJiraProjId = () => {
+  let proj_id = document.querySelector(`meta[name*=project-id`)?.content;
+  if (proj_id.length) return proj_id;
+};
+
 const getUser = async () => {
   const [tab] = await chrome.tabs.query({
     active: true,
@@ -27,4 +32,18 @@ const getUser = async () => {
   });
 
   return user;
+};
+
+export const getProjId = async () => {
+  const [tab] = await chrome.tabs.query({
+    active: true,
+    currentWindow: true,
+  });
+
+  let response = await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: getJiraProjId,
+  });
+
+  return response[0].result;
 };
