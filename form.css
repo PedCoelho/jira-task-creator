@@ -12,3 +12,45 @@ fieldset p {
     margin: unset;
     margin-bottom: .5rem;
 }
+
+form div {
+    display: flex;
+    justify-content: space-between;
+}
+
+form .tasks-ctn {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+form .tasks-ctn button {
+    margin: unset;
+}
+
+.tasks-ctn div {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.tasks-ctn div:first-of-type {
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-ctn div:first-of-type label {
+    display: flex;
+    align-items: center;
+}
+
+
+
+textarea {
+    box-sizing: border-box;
+    flex-grow: 1;
+    min-height: 100px;
+    width: 100%;
+    resize: vertical;
+}

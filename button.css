@@ -1,10 +1,15 @@
 button {
     height: 30px;
-    width: 30px;
+    width: auto;
     outline: none;
     margin: 10px;
-    border: none;
-    border-radius: 2px;
+    border: 1px solid grey;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button#sendTasks {
+    background: rgb(152, 225, 152);
 }
 
 button.current {
