@@ -1,6 +1,5 @@
 export function colorize(stored_colors, mode = "colorize", ...highlights) {
   let issues = [...document.querySelectorAll("[class*=issue-content]")];
-  let test = document.querySelector("body");
 
   const buildLabels = (el, color, text) => {
     let div = document.createElement("div");
@@ -26,15 +25,15 @@ export function colorize(stored_colors, mode = "colorize", ...highlights) {
     else colorize_bg(el, color);
 
     let projeto =
-      el.closest(".ghx-swimlane").firstChild.textContent || undefined;
-    let issue = el.querySelector(".ghx-key").innerText;
-    let deadline = el.querySelector('[data-tooltip^="Data Ac"').textContent;
-    let description = el.querySelector(".ghx-summary").innerText;
+      el.closest(".ghx-swimlane")?.firstChild?.textContent || undefined;
+    let issue = el.querySelector(".ghx-key")?.innerText;
+    let deadline = el.querySelector('[data-tooltip^="Data Ac"')?.textContent;
+    let description = el.querySelector(".ghx-summary")?.innerText;
 
     return { [category]: { projeto, issue, deadline, description } };
   };
 
-  console.log(issues, test, stored_colors);
+  console.log(issues, stored_colors);
 
   return issues.reduce((acc, x) => {
     console.log(acc);
