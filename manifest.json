@@ -1,6 +1,6 @@
 {
-  "name": "Test Extension",
-  "description": "Just trying to understand how chrome extensions work.",
+  "name": "JIRA Kanban Colorizer",
+  "description": "This extension colorizes JIRA issues in KANBAN View.",
   "version": "1.0",
   "manifest_version": 3,
   "options_page": "options.html",
@@ -11,16 +11,16 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/get_started16.png",
-      "32": "/images/get_started32.png",
-      "48": "/images/get_started48.png",
-      "128": "/images/get_started128.png"
+      "16": "/images/share16.png",
+      "32": "/images/share32.png",
+      "48": "/images/share48.png",
+      "128": "/images/share128.png"
     }
   },
   "icons": {
-    "16": "/images/get_started16.png",
-    "32": "/images/get_started32.png",
-    "48": "/images/get_started48.png",
-    "128": "/images/get_started128.png"
+    "16": "/images/share16.png",
+    "32": "/images/share32.png",
+    "48": "/images/share48.png",
+    "128": "/images/share128.png"
   }
 }
