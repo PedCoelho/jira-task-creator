@@ -1,7 +1,7 @@
 {
   "name": "JIRA Kanban Colorizer",
   "description": "This extension colorizes JIRA issues in KANBAN View.",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "manifest_version": 3,
   "options_page": "options.html",
   "background": {
