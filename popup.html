@@ -4,7 +4,6 @@
 
 <head>
     <link rel="stylesheet" href="button.css">
-    <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="global.css">
 </head>
 
@@ -16,36 +15,14 @@
         </p>
     </div>
     <div id="main-form" class="hidden">
-        <h2>Atlassian Task Creator</h2>
         <p id="username">Logged in JIRA as: <strong></strong></p>
-        <form name="main-form">
-            <div>
-                <button type="button" id="addTask">Add Task</button>
-                <button type="button" id="sendTasks">Send Selected (<span id="selCounter">0</span>
-                    selecionadas)</button>
-            </div>
-            <fieldset>
-                <legend>
-                    Importar planilha
-                </legend>
-                <input name="file" type="file">
-            </fieldset>
-            <fieldset>
-                <legend>
-                    Chave do Projeto
-                </legend>
-                <label>
-                    <input name="projectKey" type="text">
-                    (ex: PAND, AER etc)
-                </label>
-            </fieldset>
-            <div class="tasks-ctn"></div>
-        </form>
+        <h2>Find matches (front & back)</h2>
+        <p>( Will colorize issue cards based on <b>colors</b> selected in extension <b>options</b> )</p>
+        <button class="important">Do it!</button>
     </div>
 
     <script src="popup.js" type="module"></script>
-    <script src="./js/formController.js" type="module"></script>
-    <script src="./js/taskSender.js" type="module"></script>
+
 </body>
 
 </html>
