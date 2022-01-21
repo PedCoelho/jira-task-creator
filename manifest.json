@@ -7,7 +7,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": ["storage", "activeTab", "scripting", "webNavigation"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -17,6 +17,13 @@
       "128": "/images/share128.png"
     }
   },
+  "content_scripts": [
+    {
+      "matches": ["https://jiraproducao.totvs.com.br/"],
+      "run_at": "document_idle",
+      "js": ["./js/colorize.js"]
+    }
+  ],
   "icons": {
     "16": "/images/share16.png",
     "32": "/images/share32.png",
