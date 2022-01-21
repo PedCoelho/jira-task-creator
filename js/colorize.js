@@ -1,4 +1,6 @@
-export function colorize(stored_colors, mode = "colorize", ...highlights) {
+export function colorize(stored_colors, mode = "", ...highlights) {
+  const MODES = { LABELS_MODE: "LABELS_MODE" };
+
   let issues = [...document.querySelectorAll("[class*=issue-content]")];
 
   const buildLabels = (el, color, text) => {
@@ -6,7 +8,7 @@ export function colorize(stored_colors, mode = "colorize", ...highlights) {
     let textEl = document.createElement("span");
     textEl.innerText = text.toUpperCase();
     div.appendChild(textEl);
-    colorize(textEl, color);
+    colorize_bg(textEl, color);
     div.style.borderRadius = "4px";
     div.style.width = "max-content";
     div.style.padding = ".2rem .4rem";
@@ -20,8 +22,12 @@ export function colorize(stored_colors, mode = "colorize", ...highlights) {
   const textIncludes = (el, word) =>
     el.innerText.toUpperCase().includes(word.toUpperCase());
 
+  const testWords = (el, words) => {
+    return words.some((word) => textIncludes(el, word));
+  };
+
   const handleMatch = (el, color, category) => {
-    if (mode == "labels") buildLabels(el, color, category);
+    if (mode == MODES.LABELS_MODE) buildLabels(el, color, category);
     else colorize_bg(el, color);
 
     let projeto =
@@ -36,18 +42,24 @@ export function colorize(stored_colors, mode = "colorize", ...highlights) {
   console.log(issues, stored_colors);
 
   return issues.reduce((acc, x) => {
-    console.log(acc);
-    let data;
+    let words = ["front", "back"];
 
-    if (textIncludes(x, "front"))
-      data = handleMatch(x, stored_colors.front_div, "front");
-    else if (textIncludes(x, "back"))
-      data = handleMatch(x, stored_colors.back_div, "back");
-    else data = handleMatch(x, stored_colors.other_div, "outros");
+    words.forEach((word) => {
+      let data = textIncludes(x, word)
+        ? handleMatch(x, stored_colors[word + "_div"], word)
+        : null;
 
-    let key = Object.keys(data)[0];
+      if (data) {
+        let key = Object.keys(data)[0];
+        acc[key] ? acc[key].push(data[key]) : (acc[key] = [data[key]]);
+      }
+    });
 
-    acc[key] ? acc[key].push(data[key]) : (acc[key] = [data[key]]);
+    if (!testWords(x, words)) {
+      data = handleMatch(x, stored_colors.other_div, "outros");
+      let key = Object.keys(data)[0];
+      acc[key] ? acc[key].push(data[key]) : (acc[key] = [data[key]]);
+    }
 
     return acc;
   }, {});
